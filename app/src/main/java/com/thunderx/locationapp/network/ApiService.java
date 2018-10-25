@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 public interface ApiService {
 
     // Fetch users
-    @GET("?inc=name,email,dob,phone,picture&results=5")
+    @GET("?inc=name,email,dob,phone,picture&results=10")
     Single<UserResponse> fetchUsers();
 
 }

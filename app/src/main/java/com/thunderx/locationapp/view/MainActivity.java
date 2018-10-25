@@ -19,6 +19,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -115,7 +118,9 @@ public class MainActivity extends AppCompatActivity {
                                 Collections.sort(users, new Comparator<User>() {
                                     @Override
                                     public int compare(User u1, User u2) {
-                                        return 0;
+                                        return u1.getUserNameItem().getName().compareTo(
+                                                u2.getUserNameItem().getName()
+                                        );
                                     }
                                 });
 
@@ -292,6 +297,88 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.by_name:
+                sortByName();
+                return true;
+
+            case R.id.by_mobile:
+                sortByMobile();
+                return true;
+
+            case R.id.by_dob:
+                sortByDob();
+                return true;
+
+            case R.id.by_email:
+                sortByEmail();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void sortByEmail() {
+        Collections.sort(usersList, new Comparator<User>() {
+            public int compare(User u1, User u2) {
+                return u1.getEmail().compareTo(u2.getEmail());
+            }
+        });
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void sortByDob() {
+        Collections.sort(usersList, new Comparator<User>() {
+            public int compare(User u1, User u2) {
+
+                long t1 = u1.getDobItem().getTimestamp();
+                long t2 = u2.getDobItem().getTimestamp();
+
+                if(t1 < t2)
+                    return -1;
+                else if(t1 > t2)
+                    return 1;
+                else
+                    return 0;
+            }
+        });
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void sortByMobile() {
+        Collections.sort(usersList, new Comparator<User>() {
+            @Override
+            public int compare(User u1, User u2) {
+                return u1.getPhone().compareTo(u2.getPhone());
+            }
+        });
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void sortByName() {
+
+        Collections.sort(usersList, new Comparator<User>() {
+            @Override
+            public int compare(User u1, User u2) {
+                return u1.getUserNameItem().getName().compareTo(
+                        u2.getUserNameItem().getName()
+                );
+            }
+        });
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override

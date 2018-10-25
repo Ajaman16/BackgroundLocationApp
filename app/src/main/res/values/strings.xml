@@ -20,4 +20,9 @@
     </plurals>
 
     <string name="default_channel">Default channel</string>
+    <string name="sortby">sortBy</string>
+    <string name="sort_by_name">Sort By Name</string>
+    <string name="sort_by_mobile">Sort By Mobile</string>
+    <string name="sort_by_email">Sort By Email</string>
+    <string name="sort_by_dob">Sort By DOB</string>
 </resources>

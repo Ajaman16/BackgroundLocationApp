@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFF</color>
+    <color name="colorPrimary">#111</color>
     <color name="colorPrimaryDark">#111</color>
     <color name="colorAccent">#36D3B2</color>
 
     <color name="timestamp">#858585</color>
-    <color name="user_list_text">#232323</color>
+    <color name="user_list_text">#80232323</color>
 </resources>

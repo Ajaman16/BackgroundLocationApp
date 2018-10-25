@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_item_action_parameters"
+        android:icon="@drawable/sort_icon"
+        app:showAsAction="always"
+        android:title="@string/sortby">
+
+        <menu>
+
+            <item
+                android:id="@+id/by_name"
+                android:title="@string/sort_by_name" />
+            <item
+                android:id="@+id/by_mobile"
+                android:title="@string/sort_by_mobile" />
+            <item
+                android:id="@+id/by_email"
+                android:title="@string/sort_by_email" />
+            <item
+                android:id="@+id/by_dob"
+                android:title="@string/sort_by_dob" />
+
+        </menu>
+    </item>
+
+</menu>
