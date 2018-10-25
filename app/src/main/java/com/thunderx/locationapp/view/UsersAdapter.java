@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.thunderx.locationapp.R;
 import com.thunderx.locationapp.network.model.User;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder> {
 
@@ -34,6 +36,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
         @BindView(R.id.user_dob)
         TextView dob;
+
+        @BindView(R.id.profile_image)
+        CircleImageView profileImage;
 
         public MyViewHolder(View view) {
             super(view);
@@ -63,12 +68,18 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
         String phone = user.getPhone();
         String dob = user.getDobItem().getDate();
         String email = user.getEmail();
-        String pic = user.getPictureItem().getThumbnail();
+        String picURL = user.getPictureItem().getThumbnail();
 
         holder.userName.setText(name);
         holder.phone.setText(phone);
         holder.dob.setText(dob);
         holder.email.setText(email);
+
+        Picasso.get()
+                .load(picURL)
+                .placeholder(R.drawable.placeholder_icon)
+                .error(R.drawable.placeholder_icon)
+                .into(holder.profileImage);
 
     }
 

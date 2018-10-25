@@ -18,7 +18,7 @@ public class LocationBackgroundService extends JobIntentService implements Googl
         GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = LocationBackgroundService.class.getSimpleName();
-    private static final long UPDATE_INTERVAL = 10 * 1000;
+    private static final long UPDATE_INTERVAL = 20 * 1000;
     private static final long FASTEST_UPDATE_INTERVAL = UPDATE_INTERVAL / 2;
     private static final long MAX_WAIT_TIME = UPDATE_INTERVAL * 3;
 
