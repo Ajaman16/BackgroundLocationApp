@@ -52,8 +52,6 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
 
                     currentLoc = LocationResultHelper.getSavedLocationResult(context);
 
-                    // Show notification with the location data.
-
                     Log.i(TAG, LocationResultHelper.getSavedLocationResult(context));
                     Log.i(TAG,  "" + previousLoc.equals(currentLoc));
 
