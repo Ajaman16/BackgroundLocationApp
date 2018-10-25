@@ -12,7 +12,7 @@ import android.location.Location;
 import android.preference.PreferenceManager;
 import android.support.v4.app.TaskStackBuilder;
 
-import com.thunderx.locationapp.MainActivity;
+import com.thunderx.locationapp.view.MainActivity;
 import com.thunderx.locationapp.R;
 
 import java.text.DateFormat;
